@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<title>Dicionario-JS</title>
+		<!--JSON-->
+		<script type="text/javascript" src="js/chaves.json"></script>
+		<!--Script com as funções-->
+		<script language="javascript" src="js/script.js"></script>
+		<!--CSS-->
+		<link href="css/style.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<header class="flex-container">
+			<h1 class="flex-item">Dicionário com Javascript</h1>
+		</header>
+		<div class ="div-externo">
+		</br>
+		<label>Importar valores:</label>
+		<input type="file" id="fileTermos" style="display:none;" onchange="printaStatusFile('fileTermos','msg_fileTermos')">
+		<label class="custom-file-input" for="fileTermos"></label>
+		
+		<a id="msg_fileTermos">Nenhum arquivo selecionado.</a>
+		<button onclick="carrega_termos()">Carregar</button>
+		<span id="resultCarregarFileTermos"></span>
+		
+		<hr>
+		</br>
+		<label>Valor:</label>
+		<!-- Uso de datalist, Fonte:https://stackoverflow.com/questions/2141357/editable-select-element -->
+		<input list="valor" id="input_valor" class="custom-input-valor" placeholder="Digite aqui">
+		<datalist id="valor">
+		</datalist>
+		
+		<label>Chave:</label>
+		<select id="select_chave"class="custom-select">
+			<script>carregaToOption(chaves)</script>
+		</select>
+		<button onclick="escreve()">Adicionar</button>
+		</br></br>
+		
+		<label>Importar associações:</label>
+		<input type="file" id="fileAssociacoes" style="display:none;" onchange="printaStatusFile('fileAssociacoes','msg_fileAssociacoes')">
+		<label class="custom-file-input" for="fileAssociacoes"></label>
+		
+		<a id="msg_fileAssociacoes">Nenhum arquivo selecionado.</a>
+		<button onclick="carrega_associacao()">Carregar</button>
+		<span id="resultCarregarFileAssociacao"></span>
+		
+		<hr>
+		
+		<table border="1" id="tabelaAssociacoes">
+			<tr>
+				<th class="header_tabela">Valor</th>
+				<th class="header_tabela">Chave</th>
+				<th class="col_deletar"></th>
+			</tr>
+			<tr>
+			</tr>
+		</table>
+		</br>
+		<button onclick="gerarJson()">Gerar JSON</button>
+		</br></br>
+	</div>
+	</body>
+</html>
